@@ -13,6 +13,7 @@ import javax.imageio.ImageIO;
 public class TableMachine {
 
 	// variables declaration
+        private File pictureFile = new File("pic.png");
 	private BufferedImage myImage;
 	private int height;
 	private int width;
@@ -20,7 +21,6 @@ public class TableMachine {
 
 	/**
 	 * main method
-	 *
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -65,7 +65,7 @@ public class TableMachine {
 	 */
 	public void readImage() {
 		try {
-			myImage = ImageIO.read(new File("pic.png"));
+			myImage = ImageIO.read(pictureFile);
 		} catch (IOException e) {
 			System.out.println("IOExeption!!!");
 		}
