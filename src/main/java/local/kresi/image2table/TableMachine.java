@@ -13,24 +13,17 @@ import javax.imageio.ImageIO;
 public class TableMachine {
 
 	// variables declaration
-        private File pictureFile = new File("pic.png");
+        private File pictureFile;
 	private BufferedImage myImage;
 	private int height;
 	private int width;
 	private ArrayList<String> pixList;
 
 	/**
-	 * main method
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		new TableMachine();
-	}
-
-	/**
 	 * constructor
 	 */
-	public TableMachine() {
+	public TableMachine(File pictureFile) {
+                this.pictureFile = pictureFile;
 		pixList = new ArrayList<String>();
 		readImage();
 		convIt();

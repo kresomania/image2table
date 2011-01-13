@@ -1,13 +1,13 @@
 package local.kresi.image2table;
 
 /**
- * Hello world!
- *
+ * runs the app
+ * @author kbaga
  */
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        new GUI();
     }
 }

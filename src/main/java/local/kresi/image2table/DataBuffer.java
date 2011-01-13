@@ -40,6 +40,7 @@ public class DataBuffer {
     public void saveToHtml() {
         rootElement = new Element("html");
         xmlDocument = new Document();
+        int height = (pixList.size()/width);
 
         Format xmlFormat = Format.getPrettyFormat();
 //        xmlFormat.setEncoding("ISO-8859-1");
@@ -51,8 +52,9 @@ public class DataBuffer {
         //html structure
         Element headElement = new Element("head");
         Element styleElement = new Element("style");
-        styleElement.setText("table {border: none; border-collapse: collapse; "
-                + "cellspacing: 0; cellpadding: 0;} td {width: 1px; height: 1px;}");
+        styleElement.setText("table {width: " + width + "; height: " + height +
+                "; border: none; border-collapse: collapse; cellspacing: 0; "
+                + "cellpadding: 0;} td {width: 1px; height: 1px;}");
         Element bodyElement = new Element("body");
         Element tableElement = new Element("table");
 
@@ -61,7 +63,7 @@ public class DataBuffer {
         rootElement.addContent(headElement).addContent(bodyElement);
 
         try {
-        	for (int i=0;i<(pixList.size()/width);i++) {
+        	for (int i=0;i<height;i++) {
 
         		Element tr = new Element("tr");
 
