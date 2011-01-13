@@ -45,6 +45,8 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        pathTextField.setEditable(false);
+
         jLabel1.setText("save your table...");
 
         jButton1.setText("save");

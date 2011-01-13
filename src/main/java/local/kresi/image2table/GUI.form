@@ -87,6 +87,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="pathTextField">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="pathTextField.setEditable(false);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
