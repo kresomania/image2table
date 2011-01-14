@@ -17,7 +17,7 @@ import org.jdom.output.XMLOutputter;
 public class DataBuffer {
 
     // variables declaration
-    private File xmlFile = new File("table.html");
+    private File saveFile;
     private Document xmlDocument;
     private Element rootElement;
     private ArrayList<String> pixList;
@@ -28,7 +28,8 @@ public class DataBuffer {
      * @param pixList   list with hex codes
      * @param width     width of the picture
      */
-    public DataBuffer(ArrayList<String> pixList, int width) {
+    public DataBuffer(ArrayList<String> pixList, int width, File saveFile) {
+        this.saveFile = saveFile;
     	this.pixList = pixList;
     	this.width = width;
     	saveToHtml();
@@ -81,7 +82,7 @@ public class DataBuffer {
         	}
 
             xmlDocument.setRootElement(rootElement);
-            outputter.output(xmlDocument, new FileOutputStream(xmlFile));
+            outputter.output(xmlDocument, new FileOutputStream(saveFile));
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Write Error!",

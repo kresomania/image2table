@@ -2,6 +2,7 @@ package local.kresi.image2table;
 
 import java.io.File;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  * this is the gui
@@ -115,7 +116,23 @@ public class GUI extends javax.swing.JFrame {
      * @param evt
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new TableMachine(pictureFile);
+
+        // control if a picture is choosen
+        if (pictureFile != null) {
+            final JFileChooser fc = new JFileChooser();
+            int returnValue = fc.showSaveDialog(this);
+            
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+                File saveFile = fc.getSelectedFile();
+                System.out.print(saveFile.getPath());
+                new TableMachine(pictureFile, saveFile);
+            }
+        // if not, it shows a message
+        } else {
+            JOptionPane.showMessageDialog(this, "You have to choose a picture!"
+                    + "\nClick on the browse button and choose one!",
+                    "Choose a picture!", JOptionPane.OK_OPTION);
+        }   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

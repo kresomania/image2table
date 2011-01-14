@@ -14,6 +14,7 @@ public class TableMachine {
 
 	// variables declaration
         private File pictureFile;
+        private File saveFile;
 	private BufferedImage myImage;
 	private int height;
 	private int width;
@@ -22,8 +23,9 @@ public class TableMachine {
 	/**
 	 * constructor
 	 */
-	public TableMachine(File pictureFile) {
+	public TableMachine(File pictureFile, File saveFile) {
                 this.pictureFile = pictureFile;
+                this.saveFile = saveFile;
 		pixList = new ArrayList<String>();
 		readImage();
 		convIt();
@@ -50,7 +52,7 @@ public class TableMachine {
          * saves the list to a xml file ober DataBuffer
          */
 	public void saveToXml() {
-		new DataBuffer(pixList, width);
+		new DataBuffer(pixList, width, saveFile);
 	}
 
 	/**
